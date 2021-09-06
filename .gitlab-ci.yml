@@ -7,7 +7,18 @@ eslint:
     NODE_VERSION: 14.17.0
   script:
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    - export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
     - nvm install $NODE_VERSION
-    - source ~/.nvm/nvm.sh
     - npm ci
     - npm run lint
+
+prettier:
+  stage: test
+  variables:
+    NODE_VERSION: 14.17.0
+  script:
+    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    - export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
+    - nvm install $NODE_VERSION
+    - npm ci
+    - npm run check:format
