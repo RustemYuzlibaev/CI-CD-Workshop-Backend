@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  eslint:
+  prettier:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
